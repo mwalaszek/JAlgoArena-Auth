@@ -7,8 +7,8 @@ import com.jalgoarena.data.UsersRepository
 import com.jalgoarena.domain.Role
 import com.jalgoarena.domain.User
 import com.jalgoarena.security.auth.JwtAuthenticationProvider
-import com.jalgoarena.security.token.JwtAuthenticationToken
 import com.jalgoarena.security.config.JwtSettings
+import com.jalgoarena.security.token.JwtAuthenticationToken
 import com.jalgoarena.security.token.RawAccessJwtToken
 import org.hamcrest.Matchers.*
 import org.intellij.lang.annotations.Language
@@ -58,7 +58,7 @@ class UsersControllerSpec {
                 .andExpect(jsonPath("$", hasSize<ArrayNode>(2)))
                 .andExpect(jsonPath("$[0].username", `is`(USER_MIKOLAJ.username)))
                 .andExpect(jsonPath("$[0].password", `is`("")))
-                .andExpect(jsonPath("$[0].email", `is`("")))
+                .andExpect(jsonPath("$[0].email", `is`(USER_MIKOLAJ.email)))
                 .andExpect(jsonPath("$[0].region", `is`(USER_MIKOLAJ.region)))
                 .andExpect(jsonPath("$[0].team", `is`(USER_MIKOLAJ.team)))
                 .andExpect(jsonPath("$[0].role", `is`("USER")))

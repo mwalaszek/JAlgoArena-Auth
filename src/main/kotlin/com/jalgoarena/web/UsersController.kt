@@ -16,7 +16,7 @@ class UsersController(@Inject private val repository: UsersRepository) {
 
     @GetMapping("/users", produces = arrayOf("application/json"))
     fun publicUsers() = repository.findAll().map {
-        it.copy(password = "", email = "")
+        it.copy(password = "")
     }
 
     @PutMapping("/api/users", produces = arrayOf("application/json"))
